@@ -1,7 +1,6 @@
 const apiPath = (path) => {
-  const base = import.meta.env.VITE_API_URL
-  if (base) return `${base.replace(/\/$/, '')}${path}`
-  return `/api${path}`
+  const base = import.meta.env.VITE_API_URL || 'https://bug-triaging-1.onrender.com'
+  return `${base.replace(/\/$/, '')}${path}`
 }
 
 export async function predictBug(payload) {
