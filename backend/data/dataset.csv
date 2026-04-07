@@ -1,0 +1,73 @@
+bug_title,bug_description,severity,component,assignee
+REST API timeout,Users report 504 errors on checkout API under load. Need to profile and fix connection pool exhaustion.,Critical,Checkout API,Arjun Kumar
+Database deadlock,Intermittent deadlock in orders table when concurrent updates run during peak hours.,Critical,Orders DB,Arjun Kumar
+Slow SQL on dashboard,Analytics dashboard query takes 30s. Missing index on events.timestamp.,High,Analytics,Arjun Kumar
+Cache invalidation bug,Stale product prices shown after admin update. Redis TTL not cleared on publish.,High,Catalog Service,Arjun Kumar
+Webhook retries failing,Outbound webhooks return 500 and exhaust retry queue. Need exponential backoff fix.,Medium,Integrations,Arjun Kumar
+Null pointer in billing service,Invoice generation crashes when tax field missing for EU customers.,High,Billing,Arjun Kumar
+Login button misaligned,Login CTA overlaps footer on tablet breakpoints. CSS grid issue.,Medium,Web UI,Priya Sharma
+Dark mode contrast,Secondary text fails WCAG AA in dark theme on settings page.,High,Web UI,Priya Sharma
+Modal scroll trap,Modal on profile page prevents scrolling on mobile Safari.,Medium,Web UI,Priya Sharma
+Broken image thumbnails,Product gallery shows broken icons when CDN URL is rewritten incorrectly.,Low,Storefront,Priya Sharma
+Dropdown z-index,Country dropdown hidden behind sticky header on checkout.,High,Checkout UI,Priya Sharma
+Toast notifications overlap,Success toasts stack and cover primary actions on mobile.,Low,Web UI,Priya Sharma
+OAuth redirect loop,Google SSO users stuck in redirect after session expiry.,Critical,Auth,Rahul Verma
+JWT expiry too short,Mobile users logged out every 15 minutes during long forms.,High,Auth,Rahul Verma
+Brute force on login,No rate limiting on password reset endpoint observed in pen test.,Critical,Security,Rahul Verma
+RBAC bypass,Guest role can access admin reports via direct URL.,Critical,Auth,Rahul Verma
+2FA backup codes,Backup codes not invalidated after use allowing reuse.,High,Security,Rahul Verma
+Session fixation risk,Session ID not rotated after privilege change.,Medium,Auth,Rahul Verma
+App crashes on launch,iOS app crashes immediately on iPhone 12 after last release.,Critical,iOS App,Sneha Reddy
+Android push not received,FCM notifications not delivered when app in background on Android 14.,High,Android,Sneha Reddy
+Biometric login fails,Face ID works on login but fails on payment step.,Medium,Mobile,Sneha Reddy
+Offline mode sync,Notes created offline duplicate when reconnecting on poor network.,High,Mobile,Sneha Reddy
+Keyboard covers input,On Android chat screen keyboard hides message field.,Medium,Android,Sneha Reddy
+GPS permission loop,Location permission prompt loops on first install.,Low,iOS App,Sneha Reddy
+Pipeline failing on main,Deploy pipeline fails at docker build step with out of disk space on runner.,Critical,CI/CD,Karthik Raj
+Kubernetes pod OOM,Recommendation service pods restarted due to memory limit during batch job.,High,K8s,Karthik Raj
+Terraform state lock,State lock not released after failed apply blocking deployments.,High,Infra,Karthik Raj
+SSL cert expiry,Wildcard cert for api subdomain expires in 3 days. Renewal automation broken.,Critical,Infra,Karthik Raj
+Log aggregation gap,Some nodes missing in ELK after node pool upgrade.,Medium,Observability,Karthik Raj
+Helm chart version drift,Staging and prod using different chart versions causing config mismatch.,Medium,Deploy,Karthik Raj
+Flaky E2E test,Checkout E2E fails randomly on CI with timeout waiting for payment iframe.,High,QA,Ananya Iyer
+Regression in search filters,Filter combination returns zero results after release 2.4.,Critical,QA,Ananya Iyer
+Missing test coverage,Payment webhook handler has no unit tests; recent bug escaped.,Medium,QA,Ananya Iyer
+Load test failure,Peak load test shows 5% error rate at 10k RPS on search.,High,Performance QA,Ananya Iyer
+Accessibility audit gaps,Screen reader cannot focus error summary on form validation.,Medium,QA,Ananya Iyer
+Test data pollution,Shared staging DB causes flaky integration tests in mornings.,Low,QA,Ananya Iyer
+GraphQL N+1 query,Product list query triggers hundreds of DB calls slowing storefront.,High,API,Arjun Kumar
+Migration rollback failed,Flyway migration V42 cannot rollback; manual intervention needed.,Critical,Database,Arjun Kumar
+CSV export memory spike,Exporting 100k rows loads entire dataset in memory and crashes worker.,High,Reports,Arjun Kumar
+Search relevance drop,Recent index rebuild degraded relevance for multi-word queries.,Medium,Search,Arjun Kumar
+Cart merge bug,Guest cart not merged correctly after login when SKU has variants.,High,Cart,Arjun Kumar
+Rate limit headers wrong,X-RateLimit-Reset shows epoch in seconds vs ms confusing clients.,Low,API,Arjun Kumar
+Homepage hero LCP poor,Largest contentful paint > 4s on 3G due to unoptimized hero image.,High,Web UI,Priya Sharma
+Accessibility skip link,Skip to content link not visible on focus for keyboard users.,Medium,Web UI,Priya Sharma
+Form validation messages,Inline errors not announced to screen readers.,High,Web UI,Priya Sharma
+Color contrast in charts,Dashboard charts use red-green only; not colorblind safe.,Medium,Analytics UI,Priya Sharma
+Sticky header jump,Header height changes on scroll causing layout shift.,Low,Web UI,Priya Sharma
+Print stylesheet broken,Invoice print view cuts off totals on Chrome.,Low,Storefront,Priya Sharma
+MFA enrollment bug,Users cannot enroll MFA if email has plus alias.,Medium,Auth,Rahul Verma
+Password policy bypass,API accepts passwords shorter than policy for legacy endpoint.,High,Security,Rahul Verma
+CORS misconfiguration,Wildcard CORS on internal admin API exposed briefly in staging.,Critical,Security,Rahul Verma
+Audit log gaps,Admin actions on roles not written to audit trail.,High,Compliance,Rahul Verma
+CAPTCHA bypass,Automated scripts can submit contact form without challenge.,Medium,Security,Rahul Verma
+Token refresh race,Concurrent refresh requests issue duplicate refresh tokens.,Medium,Auth,Rahul Verma
+Deep link broken,Universal links open web instead of app for password reset flow.,High,iOS App,Sneha Reddy
+Tablet layout overflow,Settings screen horizontal scroll on iPad landscape.,Medium,Mobile,Sneha Reddy
+Haptic feedback missing,Success actions lack haptic on supported devices.,Low,Android,Sneha Reddy
+App size bloat,IPA increased by 40MB after adding unused assets.,Medium,iOS App,Sneha Reddy
+Crash on low memory,Image editor crashes when editing large photos on older devices.,High,Mobile,Sneha Reddy
+ANR on startup,Android main thread blocked during analytics init.,Critical,Android,Sneha Reddy
+Blue-green switch error,Traffic not draining from old pods during deploy causing 502s.,Critical,Deploy,Karthik Raj
+Secrets in logs,Database URL printed in application logs on startup.,Critical,Security Ops,Karthik Raj
+Monitoring alert storm,Pager floods on single noisy metric; need deduplication.,Medium,Observability,Karthik Raj
+Backup restore test failed,Weekly restore drill could not restore transactions table.,High,Infra,Karthik Raj
+CDN cache purge,Purge API returns success but stale assets still served 10% of requests.,Medium,CDN,Karthik Raj
+Docker image vulnerabilities,Base image has 12 critical CVEs; need upgrade path.,High,Security,Karthik Raj
+Smoke suite skipped,Release pipeline marked smoke tests optional; bad deploy went out.,Critical,QA,Ananya Iyer
+Boundary test missing,Negative amounts accepted in refund API in edge case.,High,QA,Ananya Iyer
+Localization QA gap,Date formats wrong for DE locale in invoices.,Medium,QA,Ananya Iyer
+Performance baseline drift,API p99 latency regressed 20% vs last sprint.,High,QA,Ananya Iyer
+Exploratory test findings,Checkout happy path works but edge coupons stack incorrectly.,Medium,QA,Ananya Iyer
+Test env instability,Flaky DNS resolution to mock payment provider in CI.,Low,QA,Ananya Iyer
